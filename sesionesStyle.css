@@ -325,6 +325,7 @@ display: block;
     align-items: center;
     justify-content: center;
     text-align: center;
+    
 }
 
 #franja0 h2, #franja0 p {
@@ -350,10 +351,22 @@ display: block;
     background-color: #DBDBDB;
 }
 #franja6 article{
-    background-color:#F85C3D;
+    background-color: #fff;
     padding: 25px;
-    margin:20px 0;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
 }
+#franja6 article:hover {
+    transform: translateX(10px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background-color: #F85C3D; 
+    color: #fff; 
+  }
+#franja6 article:hover h3 {
+    color: #fff; 
+  }
 
 #franja6 .centrado {
     margin-top: 100px;
@@ -371,7 +384,20 @@ display: block;
 #franja6 article p{
     margin-top:10px;
 } 
+#franja6 article a {
+    text-decoration: none;
+    color: #000; 
+    font-weight: bold;
+    display: flex;
+    margin: 18px auto 0 auto;
+    width: 150px;
+    
+  }
 
 #franja6 article.log1, #franja6 article.log2{
-    margin-right: 20px;
+    margin-right: 80px;
+    margin-top: 10px;
+}
+#franja6 article.log3{
+    margin-top: 10px;
 }
