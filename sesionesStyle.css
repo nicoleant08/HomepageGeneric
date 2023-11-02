@@ -1,0 +1,377 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    border: none;
+    scroll-behavior: smooth;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+body{    
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+}
+.navbar {
+    background-color: #fff; 
+    position: fixed;
+    top: 0;
+    width: 100%; 
+    z-index: 1000; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    
+  }
+
+/*GENÉRICOS*/
+.centrado {
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 0 20px; 
+  }
+  
+
+.limpiar{
+    clear:both;
+}
+
+figure{
+    margin: 30px auto;
+    
+}
+
+h1{
+    border-left: 5px solid #F85C3D;
+    padding-left: 15px;
+    letter-spacing: 5px;
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 2.5em;
+    line-height: 1.2em;
+}
+
+/*HEADER*/
+header{
+    width: auto;
+    float: left;
+}
+
+
+/*NAV*/
+
+nav{
+width: auto;
+    float:right;
+    margin-top:20px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #000;
+    font-weight:600;
+    font-size: 15px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    position: relative;
+    
+}
+
+nav ul li a::after{
+    content: "";
+    position: absolute;
+    background-color: #F85C3D;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -10px;
+    transition: 0.4s;
+}
+
+nav ul li a:hover{
+color: #F85C3D;
+
+}
+
+nav ul li a:hover::after{
+    width: 100%;
+
+}
+
+nav ul li{
+    display: inline-block;
+    padding: 25px 0 25px 40px;
+}
+/*Botones*/
+.btn{
+    display: inline-block;
+    padding: 13px 40px;
+    background: #F85C3D;
+    color: var(--bg-color);
+    font-size: 15px;
+    font-weight: 600;
+    border: 2px solid transparent;
+   transition: all .50s ease;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.btn:hover{
+   
+    border: 2px solid black;
+    background: transparent;
+    color: black;
+}
+
+/*
+nav ul li.especial{
+    padding-left: 0;
+}
+
+#seleccion {
+    background-color: #F85C3D;
+    color: #ffffff;
+    padding: 25px 20px;
+}
+
+#seleccion:hover {
+    background-color: #ffffff;
+    color: black;
+    padding: 25px 20px;
+}
+
+nav ul li a, nav ul li a:link{
+    font-weight: bold;
+    color:black;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+nav ul li a:hover{
+    color:#F85C3D;
+}*/
+
+/*FOOTER*/
+footer{
+    position: flex;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    height: auto;
+    width: 100vw;
+
+    padding-top: 40px;
+    color: black;
+}
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.footer-content h3{
+    font-size: 2.1rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+.footer-content p{
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+    color: black;
+}
+.socials{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+.socials li{
+    margin: 0 10px;
+}
+.socials a{
+    text-decoration: none;
+    color: black;
+    border: 1.1px solid #F85C3D;
+    padding: 5px;
+
+    border-radius: 50%;
+
+}
+.socials a i{
+    font-size: 1.1rem;
+    width: 20px;
+
+
+    transition: color .4s ease;
+
+}
+.socials a:hover i{
+    color: #F85C3D;
+}
+
+.footer-bottom{
+    background: #F85C3D;
+    width: 100vw;
+    padding: 20px;
+    padding-bottom: 40px;
+    text-align: center;
+}
+.footer-bottom p{
+    float: left;
+    color: white;
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
+.footer-bottom p a{
+  color:#44bae8;
+  font-size: 16px;
+  text-decoration: none;
+}
+.footer-bottom span{
+    text-transform: uppercase;
+    opacity: .4;
+    font-weight: 200;
+}
+.footer-menu{
+  float: right;
+
+}
+.footer-menu ul{
+  display: flex;
+}
+.footer-menu ul li{
+padding-right: 10px;
+display: block;
+}
+.footer-menu ul li a{
+  color: #cfd2d6;
+  text-decoration: none;
+}
+.footer-menu ul li a:hover{
+  color: #27bcda;
+}
+
+@media (max-width:500px) {
+.footer-menu ul{
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 20px;
+} }
+
+#subir {
+    display: flex;
+    float: right;
+    padding: 0px;
+    width: auto;
+    
+}
+
+#subir a {
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    width: 32px; /* Ajusta el ancho del círculo según tus necesidades */
+    height: 32px; /* Ajusta la altura del círculo según tus necesidades */
+    background-color: #DBDBDB;
+    border-radius: 50%; /* Hace que el fondo sea circular */
+    color: black;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px; /* Centra verticalmente el emoji en el círculo */
+    margin-top: 3px; /* Ajusta el margen superior según tus necesidades */
+  }
+
+
+  .title-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+    position: relative; 
+}
+
+.banner {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: black;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.5s ease; 
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+
+/*FRANJA 0*/
+
+#franja0 {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#franja0 h2, #franja0 p {
+    margin: 10px 0;
+}
+
+#franja0 article.box-izq, #franja0 article.box-der {
+    width: 540px;
+    float: none; /* Debes eliminar "float: left;" para centrar verticalmente */
+    text-align: center; /* Agrega alineación centrada */
+}
+
+#franja0 article p {
+    margin-top: 20px;
+    font-size: 1em;
+    line-height: 1.2em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/*PAGINA - SESIONES*/
+#franja6 {
+    margin-top: -9%;
+    background-color: #DBDBDB;
+}
+#franja6 article{
+    background-color:#F85C3D;
+    padding: 25px;
+    margin:20px 0;
+}
+
+#franja6 .centrado {
+    margin-top: 100px;
+}
+
+#franja6 article.log1, #franja6 article.log2, #franja6 article.log3{
+    /*tienen padding de 25px*/
+    /*width: 600px;*/
+    /*width: 550px;*/
+    width: 28%;
+    float:left;
+    height:250px; /*chequear*/
+}
+
+#franja6 article p{
+    margin-top:10px;
+} 
+
+#franja6 article.log1, #franja6 article.log2{
+    margin-right: 20px;
+}
