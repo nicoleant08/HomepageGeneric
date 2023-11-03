@@ -1,6 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script>
+    const translations = {
+      "en": {},
+      "es": {}
+    };
+  
+    fetch("translations.json")
+      .then((response) => response.json())
+      .then((data) => {
+        translations["en"] = data["en"];
+        translations["es"] = data["es"];
+        // Cargar las traducciones al cargar la página
+        applyTranslations();
+      });
+  
+    function applyTranslations() {
+      const lang = document.documentElement.lang || "en";
+      const elements = document.querySelectorAll("[data-translate]");
+  
+      elements.forEach((element) => {
+        const key = element.dataset.translate;
+        if (translations[lang] && translations[lang][key]) {
+          element.textContent = translations[lang][key];
+        }
+      });
+    }
+  </script>
+  
 <title>Quick Carry</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,10 +43,13 @@
     <header><a href="index.html"><img class="logo" src="img/logo_quick2.png" alt="LOGO Quick Carry" /></a></header>
     <nav>
       <ul>
-        <li class="especial"><a href="#servicios">Servicios</a></li>
-        <li><a href="#conocenos">Conocenos</a></li>
-        <li><a href="#encontranos">Encontranos</a></li>
-        <li><a id="seleccion" href="sesiones.html" class="btn">Iniciar Sesion</a></li>
+        <li class="especial"><a href="#servicios" data-translate="services">Servicios</a></li>
+        <li><a href="#conocenos" data-translate="about_us">Conocenos</a></li>
+        <li><a href="#encontranos" data-translate="find_us">Encontranos</a></li>
+        <li><a id="seleccion" href="sesiones.html" data-translate="login" class="btn">Iniciar Sesion</a></li>
+        <li><button id="btn" onclick="changeLanguage('en')">English</button>
+            <button onclick="changeLanguage('es')">Español</button>
+          </li>
       </ul>
     </nav>
     <div class="limpiar"></div>
@@ -30,9 +61,9 @@
 <section id="franja0">
   <div class="centrado">
     <article class="box-izq">
-      <h2 id="banner">Soluciones tecnológicas para facilitar la gestión de tus envíos</h2>
-      <p>Integra, automatiza y gestiona todos los envíos de tu tienda en nuestra plataforma.</p>
-      <a href=#franja2 class="btn">Ratrear mi pedido</a> 
+      <h2 id="banner" data-translate="solutions">Soluciones tecnológicas para facilitar la gestión de tus envíos</h2>
+      <p data-translate="integrate_manage">Integra, automatiza y gestiona todos los envíos de tu tienda en nuestra plataforma.</p>
+      <a href=#franja2 data-translate="Shipment" class="btn">Ratrear mi pedido</a> 
     </article>
     <article class="box-der">
       <figure style="margin-top: 10rem; padding-left: 3rem; "> <img src="img/banner.png" alt="Banner"/> </figure> 
@@ -45,9 +76,9 @@
 <!--INICIO FRANJA 5-->
 <section id="franja5">
   <div class="centrado">
-    <h1 id="conocenos">CONOCENOS</h1>
+    <h1 id="conocenos" data-translate="about_us">CONOCENOS</h1>
     <article>
-      <p> Con más de dos décadas al servicio de Uruguay, en Quickcarry nos hemos consolidado como líderes en logística y transporte. Cada producto que nos confían lleva consigo una historia y una promesa, y es nuestro deber protegerlo y gestionarlo con la máxima eficiencia. En un sector tan dinámico, nuestra fortaleza radica en la personalización y adaptabilidad. Cada cliente tiene un desafío único; nosotros ofrecemos soluciones a medida, asegurando que sus objetivos se conviertan en logros tangibles.</p>
+      <p data-translate="conMas"> Con más de dos décadas al servicio de Uruguay, en Quickcarry nos hemos consolidado como líderes en logística y transporte. Cada producto que nos confían lleva consigo una historia y una promesa, y es nuestro deber protegerlo y gestionarlo con la máxima eficiencia. En un sector tan dinámico, nuestra fortaleza radica en la personalización y adaptabilidad. Cada cliente tiene un desafío único; nosotros ofrecemos soluciones a medida, asegurando que sus objetivos se conviertan en logros tangibles.</p>
     </article>
   </div>
 </section>
@@ -56,32 +87,32 @@
 <!--INICIO FRANJA 1-->
 <section id="franja1">
   <div class="centrado">
-    <h1 id="servicios">SERVICIOS</h1>
+    <h1 id="servicios" data-translate="services">SERVICIOS</h1>
   </div>
 
   <div class="centrado">
     <article class="box-izq">
-      <h3>FLOTA PROPIA</h3>
-      <p>Carga las tarifas de tu flete en plataforma para integrarlo a todos tus canales de venta y darle seguimiento a tus envíos.</p>
-      <a href="detalle.html">Conocer más</a>
+      <h3 data-translate="fleet">FLOTA PROPIA</h3>
+      <p data-translate="cargaLas">Carga las tarifas de tu flete en plataforma para integrarlo a todos tus canales de venta y darle seguimiento a tus envíos.</p>
+      <a href="detalle.html" data-translate="seeMore">Conocer más</a>
     </article>
 
     <article class="box-der">
-      <h3>ENTREGAS FLEX</h3>
-      <p>Ofrece a tus clientes entregas de tus productos en el día dentro de Montevideo y 48hs en el interior del país.</p>
-      <a href="detalle.html">Conocer más</a>
+      <h3 data-translate="flex_delivery">ENTREGAS FLEX</h3>
+      <p data-translate="ofrece">Ofrece a tus clientes entregas de tus productos en el día dentro de Montevideo y 48hs en el interior del país.</p>
+      <a href="detalle.html" data-translate="seeMore">Conocer más</a>
     </article>
 
     <article class="box-izq">
-      <h3>FULFILLMENT</h3>
-      <p>Almacena tus productos en nuestra red de depósitos. Ante cada venta, preparamos y despachamos tus envíos con diferentes posibilidades de operadores.</p>
-      <a href="detalle.html">Conocer más</a>
+      <h3>Fulfillment</h3>
+      <p data-translate="almacena">Almacena tus productos en nuestra red de depósitos. Ante cada venta, preparamos y despachamos tus envíos con diferentes posibilidades de operadores.</p>
+      <a href="detalle.html" data-translate="seeMore">Conocer más</a>
     </article>
 
     <article class="box-der">
-      <h3>PICK UP CENTER</h3>
-      <p>Servicio de pick up center, ofrece a tus clientes la posibilidad de retirar sus pedidos en nuestros centros de pick up distribuidos en todo el país.</p>
-      <a href="detalle.html">Conocer más</a>
+      <h3 data-translate="pick_up_center">PICK UP CENTER</h3>
+      <p data-translate="serv">Servicio de pick up center, ofrece a tus clientes la posibilidad de retirar sus pedidos en nuestros centros de pick up distribuidos en todo el país.</p>
+      <a href="detalle.html" data-translate="seeMore">Conocer más</a>
     </article>
   </div>
 
@@ -93,12 +124,12 @@
 <!--INICIO FRANJA 2-->
 <section id="franja2">
   <div class="centrado">
-    <h1>SEGUIMIENTO DE ENVÍOS</h1>
+    <h1 data-translate="segui">SEGUIMIENTO DE ENVÍOS</h1>
   </div>
   <div id="fondo-seguimiento">
     <form>
-      <input type="text" id="trackID" class="input-field" placeholder="Coloque aquí su Tracking ID" required>
-      <button type="submit" class="btn">Seguir</button>
+      <input type="text" id="trackID" class="input-field" data-translate="Coloque" placeholder="Coloque aquí su Tracking ID" required>
+      <button type="submit" data-translate="track" class="btn">Seguir</button>
     </form>
   </div>
 </section>
@@ -108,15 +139,15 @@
 <!--INICIO FRANJA 4-->
 <section id="franja4">
   <div class="centrado">
-    <h1 id="encontranos">ENCONTRANOS</h1>
+    <h1 id="encontranos" data-translate="find_us">ENCONTRANOS</h1>
     <article class="box-der">
       <figure class="image-container">
         <img src="mapa.jpeg" alt="plano UY" class="enlarge-image" />
       </figure>
     </article>
     <article class="box-der">
-      <h3> Encontrá la sucursal más cercana </h3>
-      <p>Llegamos a todo el país. <br> Contamos con nuestro centro de operaciones en Montevideo y 20 receptorias en el interior</p>
+      <h3 data-translate="cerca"> Encontrá la sucursal más cercana </h3>
+      <p data-translate="pais">Llegamos a todo el país. <br> Contamos con nuestro centro de operaciones en Montevideo y 20 receptorias en el interior</p>
     </article>
     <div class="limpiar"></div>
   </div>
@@ -128,15 +159,15 @@
 <!--INICIO FRANJA 3-->
 <section id="franja3">
   <div class="centrado">
-    <h1>CLIENTES</h1>
+    <h1 data-translate="clients">CLIENTES</h1>
     <div class="testimonials-container">
       <article class="testimonial active">
         <h3>Natalia Retta - VISUAR</h3>
-        <p><i>“Son accesibles, escuchan y se adecuan a las necesidades de nuestra empresa. Es un aliado logístico estratégico para nuestro canal ecommerce y para cualquier empresa!”</i></p>
+        <p><i data-translate="Son">“Son accesibles, escuchan y se adecuan a las necesidades de nuestra empresa. Es un aliado logístico estratégico para nuestro canal ecommerce y para cualquier empresa!”</i></p>
       </article>
       <article class="testimonial">
         <h3>Ignacio Mora - SAMSUNG</h3>
-        <p><i>“Nos permite enviar todos nuestros productos a cualquier destino del país, sean grandes, pequeños, livianos o pesados. Nos gusta mucho la dinámica de la plataforma virtual y su interfaz, súper intuitiva.”</i></p>
+        <p><i data-translate="Nos">“Nos permite enviar todos nuestros productos a cualquier destino del país, sean grandes, pequeños, livianos o pesados. Nos gusta mucho la dinámica de la plataforma virtual y su interfaz, súper intuitiva.”</i></p>
       </article>
     </div>
     <div class="dots"></div>
@@ -147,9 +178,9 @@
 <!--FOOTER-->
 <footer>
   <div class="footer-content">
-      <h3>INFORMACIÓN DE CONTACTO</h3>
+      <h3 data-translate="contact_info">INFORMACIÓN DE CONTACTO</h3>
       <p>@quickcarryuruguay</p>
-      <p>Enviar mensaje a info@quickcarry.com.uy</p>
+      <p data-translate="enviar">Enviar mensaje a info@quickcarry.com.uy</p>
       <p>http://www.quickcarry.com.uy</p>
       <ul class="socials">
           <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -160,7 +191,7 @@
       </ul>
   </div>
   <div class="footer-bottom">
-      <p>copyright &copy; <a href="#">Desarrollado por Generic Solutions</a>  </p>
+      <p>copyright &copy; <a href="#" data-translate="developed_by">Desarrollado por Generic Solutions</a>  </p>
               <div class="footer-menu">
                 <div id="subir">
                   <a href="#"><span>&#8593;</span></a> 

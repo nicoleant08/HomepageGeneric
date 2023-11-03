@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    const translations = {
+      "en": {},
+      "es": {}
+    };
+  
+    fetch("translations.json")
+      .then((response) => response.json())
+      .then((data) => {
+        translations["en"] = data["en"];
+        translations["es"] = data["es"];
+        // Cargar las traducciones al cargar la página
+        applyTranslations();
+      });
+  
+    function applyTranslations() {
+      const lang = document.documentElement.lang || "en";
+      const elements = document.querySelectorAll("[data-translate]");
+  
+      elements.forEach((element) => {
+        const key = element.dataset.translate;
+        if (translations[lang] && translations[lang][key]) {
+          element.textContent = translations[lang][key];
+        }
+      });
+    }
+  </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="sesionesStyle.css" rel="stylesheet" type="text/css"/>
-    <title>Inicio de Sesion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost&display=swap" rel="stylesheet"><title>Inicio de Sesion</title>
 </head>
 <body>
     <!--INICIO FRANJA MENU-->
@@ -14,44 +44,45 @@
     <header><a href="index.html"><img class="logo" src="img/logo_quick2.png" alt="LOGO Quick Carry" /></a></header>
     <nav>
       <ul>
-        <li class="especial"><a href="#servicios">Servicios</a></li>
-        <li><a href="#conocenos">Conocenos</a></li>
-        <li><a href="#encontranos">Encontranos</a></li>
-        <li><a id="seleccion" href="sesiones.html" class="btn">Iniciar Sesion</a></li>
+        <li><a href="index.html" data-translate="back_to_home">Volver atras</a></li>
+        <li><button id="btn" onclick="changeLanguage('en')">English</button>
+          <button onclick="changeLanguage('es')">Español</button>
+        </li>
       </ul>
     </nav>
     <div class="limpiar"></div>
   </div>
 </div>
 <!--FIN FRANJA MENU-->
-<!--INICIO FRANJA 0-->
-<div class="title-container">
+<!-- INICIO FRANJA 0 -->
+<div class="title-container" id="franja0">
   <div id="fondo-seguimiento">
-    <h2 id="banner">Bienvenido</h2>
+      <h2 id="banner" data-translate="welcome">Bienvenido</h2>
+      <p data-translate="integrate_manage">Integra, automatiza y gestiona todos los envíos de tu tienda en nuestra plataforma.</p>
   </div>
 </div>
-<!--FIN FRANJA 0--> 
+<!-- FIN FRANJA 0 -->
 <section class="about-us">
 <!--INICIO FRANJA 6-->
 <section id="franja6">
   <div class="centrado">
-    <h1>SESIONES</h1>
+    <h1 data-translate="sessions">SESIONES</h1>
   </div>
 <div class="centrado">
   <article class="log1">
     <h3>BACKOFFICE</h3>
-    <p> Carga las tarifas de tu flete en plataforma para integrarlo a todos tus canales de venta y darle seguimiento a tus envíos.</p>
-    <a href="detalle.html">Conocer más</a> 
+    <p data-translate="carga"> Carga las tarifas de tu flete en plataforma para integrarlo a todos tus canales de venta y darle seguimiento a tus envíos.</p>
+    <a href="detalle.html" data-translate="login">Conocer más</a> 
   </article>
   <article class="log2">
-    <h3>APP CHOFER</h3>
-    <p> Ofrece a tus clientes entregas de tus productos en el día dentro de Montevideo y 48hs en el interior del pais.</p>
-    <a href="detalle.html">Conocer más</a> 
+    <h3 data-translate="driver">APP CHOFER</h3>
+    <p data-translate="2"> Ofrece a tus clientes entregas de tus productos en el día dentro de Montevideo y 48hs en el interior del pais.</p>
+    <a href="detalle.html" data-translate="login">Conocer más</a> 
   </article>
   <article class="log3">
-    <h3>APP ALMACEN</h3>
-    <p> Almacená tus productos en nuestra red de depósitos. Ante cada venta, preparamos y despachamos tus envíos con diferentes posibilidades de operadores.</p>
-    <a href="detalle.html">Conocer más</a> 
+    <h3 data-translate="ware">APP ALMACEN</h3>
+    <p data-translate="3"> Almacená tus productos en nuestra red de depósitos. Ante cada venta, preparamos y despachamos tus envíos con diferentes posibilidades de operadores.</p>
+    <a href="detalle.html" data-translate="login">Conocer más</a> 
   </article>
   
   <div class="limpiar"></div>
@@ -63,9 +94,9 @@
   <!--FOOTER-->
 <footer>
   <div class="footer-content">
-      <h3>INFORMACIÓN DE CONTACTO</h3>
+      <h3 data-translate="contact_info">INFORMACIÓN DE CONTACTO</h3>
       <p>@quickcarryuruguay</p>
-      <p>Enviar mensaje a info@quickcarry.com.uy</p>
+      <p data-translate="enviar">Enviar mensaje a info@quickcarry.com.uy</p>
       <p>http://www.quickcarry.com.uy</p>
       <ul class="socials">
           <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -76,7 +107,7 @@
       </ul>
   </div>
   <div class="footer-bottom">
-      <p>copyright &copy; <a href="#">Desarrollado por Generic Solutions</a>  </p>
+      <p>copyright &copy; <a href="#" data-translate="developed_by">Desarrollado por Generic Solutions</a>  </p>
               <div class="footer-menu">
                 <div id="subir">
                   <a href="#"><span>&#8593;</span></a> 
@@ -88,5 +119,6 @@
 
 </footer>
 <!--FIN FOOTER-->
+<script src="js.js"></script>
 </body>
 </html>

@@ -128,34 +128,7 @@ nav ul li{
     color: black;
 }
 
-/*
-nav ul li.especial{
-    padding-left: 0;
-}
 
-#seleccion {
-    background-color: #F85C3D;
-    color: #ffffff;
-    padding: 25px 20px;
-}
-
-#seleccion:hover {
-    background-color: #ffffff;
-    color: black;
-    padding: 25px 20px;
-}
-
-nav ul li a, nav ul li a:link{
-    font-weight: bold;
-    color:black;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-}
-
-nav ul li a:hover{
-    color:#F85C3D;
-}*/
 
 /*FOOTER*/
 footer{
@@ -163,7 +136,7 @@ footer{
     bottom: 0;
     left: 0;
     right: 0;
-    background: white;
+    background: #DBDBDB;
     height: auto;
     width: 100vw;
 
@@ -283,15 +256,15 @@ display: block;
     text-decoration: none;
     display: inline-block;
     text-align: center;
-    width: 32px; /* Ajusta el ancho del círculo según tus necesidades */
-    height: 32px; /* Ajusta la altura del círculo según tus necesidades */
+    width: 32px; 
+    height: 32px; 
     background-color: #DBDBDB;
-    border-radius: 50%; /* Hace que el fondo sea circular */
+    border-radius: 50%; 
     color: black;
     font-weight: bold;
     font-size: 24px;
-    line-height: 32px; /* Centra verticalmente el emoji en el círculo */
-    margin-top: 3px; /* Ajusta el margen superior según tus necesidades */
+    line-height: 32px; 
+    margin-top: 3px; 
   }
 
 
@@ -301,6 +274,9 @@ display: block;
     align-items: center; 
     height: 100vh; 
     position: relative; 
+    font-family: 'Anton', sans-serif;
+    font-family: 'Jost', sans-serif;
+    font-size: 24px;
 }
 
 .banner {
@@ -325,33 +301,48 @@ display: block;
     align-items: center;
     justify-content: center;
     text-align: center;
-    
+    background-image: url('img/foto11.jpg');
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 3%;
+    color: white; 
+    position: relative;
+}
+
+#fondo-seguimiento {
+    position: relative;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5); 
+    padding: 20px;
 }
 
 #franja0 h2, #franja0 p {
     margin: 10px 0;
+    color: white; 
 }
 
 #franja0 article.box-izq, #franja0 article.box-der {
     width: 540px;
-    float: none; /* Debes eliminar "float: left;" para centrar verticalmente */
-    text-align: center; /* Agrega alineación centrada */
+    float: none; 
+    text-align: center; 
 }
 
 #franja0 article p {
     margin-top: 20px;
     font-size: 1em;
     line-height: 1.2em;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Anton', sans-serif;
+    font-family: 'Jost', sans-serif;
 }
 
 /*PAGINA - SESIONES*/
 #franja6 {
-    margin-top: -9%;
-    background-color: #DBDBDB;
+    background-color: white;
+    padding: 30px 0; 
+    padding-top: -5rem;
 }
 #franja6 article{
-    background-color: #fff;
+    background-color: #DBDBDB;
     padding: 25px;
     margin: 20px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -362,23 +353,27 @@ display: block;
     transform: translateX(10px); 
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     background-color: #F85C3D; 
-    color: #fff; 
+    color: black; 
   }
 #franja6 article:hover h3 {
     color: #fff; 
   }
 
-#franja6 .centrado {
-    margin-top: 100px;
+  #franja6 .centrado {
+    margin-top: 50px; 
 }
 
-#franja6 article.log1, #franja6 article.log2, #franja6 article.log3{
-    /*tienen padding de 25px*/
-    /*width: 600px;*/
-    /*width: 550px;*/
-    width: 28%;
-    float:left;
-    height:250px; /*chequear*/
+
+
+#franja6 article.log1,
+#franja6 article.log2,
+#franja6 article.log3 {
+    width: 28%; 
+    float: left;
+    height: 250px; 
+    margin-right: 60px; 
+    margin-top: 10px;
+    align-items: center;
 }
 
 #franja6 article p{
@@ -386,18 +381,26 @@ display: block;
 } 
 #franja6 article a {
     text-decoration: none;
-    color: #000; 
+    color: #000;
     font-weight: bold;
-    display: flex;
-    margin: 18px auto 0 auto;
-    width: 150px;
-    
-  }
-
-#franja6 article.log1, #franja6 article.log2{
-    margin-right: 80px;
-    margin-top: 10px;
+    display: inline-block; 
+    padding: 10px 20px; 
+    background-color: #F85C3D;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    margin: 18px 0 0 0;
 }
-#franja6 article.log3{
-    margin-top: 10px;
+#franja6 article a:hover{
+    background-color: black;
+    color: #fff;
+}
+/* Ajustes de responsive */
+@media (max-width: 768px) {
+    #franja6 article.log1,
+    #franja6 article.log2,
+    #franja6 article.log3 {
+        width: 100%; 
+        margin-right: 0; /
+    }
 }

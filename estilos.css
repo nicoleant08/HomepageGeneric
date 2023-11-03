@@ -127,35 +127,15 @@ nav ul li{
     background: transparent;
     color: black;
 }
+/*boton oculto*/
+.menu-icon {
+    display: none; /* Inicialmente oculto en pantallas grandes */
+    font-size: 24px; /* Ajusta el tamaño según tus necesidades */
+    cursor: pointer;
+    color: #000; /* Color del ícono del menú */
+  }
+  
 
-/*
-nav ul li.especial{
-    padding-left: 0;
-}
-
-#seleccion {
-    background-color: #F85C3D;
-    color: #ffffff;
-    padding: 25px 20px;
-}
-
-#seleccion:hover {
-    background-color: #ffffff;
-    color: black;
-    padding: 25px 20px;
-}
-
-nav ul li a, nav ul li a:link{
-    font-weight: bold;
-    color:black;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-}
-
-nav ul li a:hover{
-    color:#F85C3D;
-}*/
 
 /*FOOTER*/
 footer{
@@ -283,15 +263,15 @@ display: block;
     text-decoration: none;
     display: inline-block;
     text-align: center;
-    width: 32px; /* Ajusta el ancho del círculo según tus necesidades */
-    height: 32px; /* Ajusta la altura del círculo según tus necesidades */
+    width: 32px; 
+    height: 32px; 
     background-color: #DBDBDB;
-    border-radius: 50%; /* Hace que el fondo sea circular */
+    border-radius: 50%; 
     color: black;
     font-weight: bold;
     font-size: 24px;
-    line-height: 32px; /* Centra verticalmente el emoji en el círculo */
-    margin-top: 3px; /* Ajusta el margen superior según tus necesidades */
+    line-height: 32px; 
+    margin-top: 3px; 
   }
 
 
@@ -314,9 +294,6 @@ display: block;
 
 
 #franja0 article.box-izq, #franja0 article.box-der{
-    /*tienen padding de 25px*/
-    /*width: 600px;*/
-    /*width: 550px;*/
     width: 540px;
     float:left;
 }
@@ -353,10 +330,6 @@ display: block;
     background-color: white;
     color: #F85C3D;
 }
-
-
-  
-
 
 /*FRANJA 5*/
 #franja5{
@@ -502,9 +475,7 @@ input[type="text"] {
 }
 
 #franja2 article.box-izq, #franja2 article.box-der{
-    /*tienen padding de 25px*/
-    /*width: 600px;*/
-    /*width: 550px;*/
+    
     width: 540px;
     float:left;
 }
@@ -573,9 +544,7 @@ input[type="text"] {
 }
 
 #franja3 article.box-izq, #franja3 article.box-der{
-    /*tienen padding de 25px*/
-    /*width: 600px;*/
-    /*width: 550px;*/
+    
     width: 540px;
     float:left;
 }
@@ -613,9 +582,7 @@ input[type="text"] {
 
 
 #franja4 article.box-izq, #franja4 article.box-der{
-    /*tienen padding de 25px*/
-    /*width: 600px;*/
-    /*width: 550px;*/
+    
     width: 540px;
     float:left;
 }
@@ -676,7 +643,7 @@ input[type="text"] {
     /*width: 550px;*/
     width: 28%;
     float:left;
-    height:250px; /*chequear*/
+    height:250px; 
 }
 
 #franja6 article p{

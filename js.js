@@ -12,3 +12,10 @@ function mostrarTestimonioAutomaticamente() {
 }
 
 setInterval(mostrarTestimonioAutomaticamente, 5000);
+
+
+  function changeLanguage(lang) {
+    document.documentElement.lang = lang;
+    applyTranslations();
+  }
+
